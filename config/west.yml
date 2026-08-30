@@ -4,15 +4,14 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    # Om modulen ligger under en annan organisation kan vi lägga till en till remote, 
-    # men vi kan också peka direkt på hela URL:en i projektet om det behövs.
+    - name: azoteq-remote
+      url-base: https://github.com/AYM1607
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
     - name: zmk-driver-azoteq-iqs5xx
-      remote: zmkfirmware
-      repo: AYM1607/zmk-driver-azoteq-iqs5xx
+      remote: azoteq-remote
       revision: main
   self:
     path: config
