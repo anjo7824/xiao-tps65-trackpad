@@ -1,9 +1,9 @@
 / {
     chosen {
         zmk,pointing = &trackpad;
+        zmk,kscan = &matrix_kscan;
     };
 
-    // Skapar en dummy-kscan för att ZMK inte ska krascha på saknat tangentbord
     matrix_kscan: kscan_0 {
         compatible = "zmk,kscan-gpio-direct";
         wakeup-source;
