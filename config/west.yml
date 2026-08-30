@@ -4,11 +4,15 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    # Additional modules containing boards/shields/custom code can be listed here as well
-    # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
+    # Om modulen ligger under en annan organisation kan vi lägga till en till remote, 
+    # men vi kan också peka direkt på hela URL:en i projektet om det behövs.
   projects:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
+    - name: zmk-driver-azoteq-iqs5xx
+      remote: zmkfirmware
+      repo: AYM1607/zmk-driver-azoteq-iqs5xx
+      revision: main
   self:
     path: config
