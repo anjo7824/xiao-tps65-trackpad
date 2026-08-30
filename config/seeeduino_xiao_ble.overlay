@@ -1,14 +1,6 @@
 / {
     chosen {
         zmk,pointing = &trackpad;
-        zmk,kscan = &matrix_kscan;
-    };
-
-    matrix_kscan: kscan_0 {
-        compatible = "zmk,kscan-gpio-direct";
-        wakeup-source;
-        rows = <1>;
-        columns = <1>;
     };
 };
 
