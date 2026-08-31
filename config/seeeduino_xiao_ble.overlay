@@ -52,6 +52,6 @@
         natural-scroll-y;
         press-and-hold;
         two-finger-tap;
-        bottom-beta = <10>;
+        bottom-beta = <5>;
     };
 };
