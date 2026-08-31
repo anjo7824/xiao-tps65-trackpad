@@ -1,3 +1,6 @@
+#include <dt-bindings/zmk/input_transform.h>
+#include <input/processors.dtsi>
+
 / {
     chosen {
         zmk,pointing = &trackpad;
@@ -46,7 +49,9 @@
         
         /* Drivrutinens standardegenskaper */
         scroll;
+        natural-scroll-y;
         press-and-hold;
         two-finger-tap;
+        bottom-beta = <50>;
     };
 };
