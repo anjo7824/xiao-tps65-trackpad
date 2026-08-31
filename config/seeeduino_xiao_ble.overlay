@@ -6,9 +6,7 @@
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-direct";
-        wakeup-source;
-        rows = <1>;
-        columns = <1>;
+        input-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 
     trackpad_listener {
