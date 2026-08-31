@@ -48,5 +48,7 @@
         scroll;
         press-and-hold;
         two-finger-tap;
+        natural-scroll-y;
+        bottom-beta = <50>;
     };
 };
