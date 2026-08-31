@@ -13,5 +13,6 @@ manifest:
     - name: zmk-driver-azoteq-iqs5xx
       remote: azoteq-remote
       revision: main
+      path: zmk-driver-azoteq-iqs5xx
   self:
     path: config
