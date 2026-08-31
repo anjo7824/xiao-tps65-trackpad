@@ -8,4 +8,4 @@
 include:
   - board: seeeduino_xiao_ble
     snippet: zmk-usb-logging
-    cmake-args: -DZEPHYR_EXTRA_MODULES="/__w/xiao-tps65-trackpad/zmk-driver-azoteq-iqs5xx/zmk-driver-azoteq-iqs5xx"
+    cmake-args: -DZMK_EXTRA_MODULES="/__w/xiao-tps65-trackpad/zmk-driver-azoteq-iqs5xx"
