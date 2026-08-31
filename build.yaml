@@ -8,3 +8,4 @@
 include:
   - board: seeeduino_xiao_ble
     snippet: zmk-usb-logging
+    cmake-args: -DZEPHYR_EXTRA_MODULES="/__w/${{ github.event.repository.name }}/${{ github.event.repository.name }}/zmk-driver-azoteq-iqs5xx"
