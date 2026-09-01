@@ -12,21 +12,22 @@
         input-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 
+    /* Deklaration av accelerationsnoden inuti rot-noden */
+    pointer_accel: pointer_accel {
+        compatible = "zmk,input-processor-pointing-acceleration";
+        min-factor = <1000>;         /* 1.0x vid långsamma rörelser (pixelprecision) */
+        max-factor = <3500>;         /* 3.5x vid snabba svep */
+        speed-threshold = <1000>;    /* Tröskelvärde där accelerationen startar */
+        speed-max = <6000>;          /* Hastighet för max acceleration */
+        acceleration-exponent = <2>; /* Kvadratisk accelerationskurva */
+        track-remainders;            /* Sparar bråkdelar för mjukare rörelser */
+    };
+
     trackpad_listener {
         compatible = "zmk,input-listener";
         device = <&trackpad>;
         input-processors = <&pointer_accel>;
     };
-};
-
-/* Referens till pekaracceleration (måste ligga utanför rot-noden) */
-&pointer_accel {
-    min-factor = <1000>;         /* 1.0x vid långsamma rörelser (pixelprecision) */
-    max-factor = <3500>;         /* 3.5x vid snabba svep */
-    speed-threshold = <1000>;    /* Tröskelvärde där accelerationen startar */
-    speed-max = <6000>;          /* Hastighet för max acceleration */
-    acceleration-exponent = <2>; /* Kvadratisk accelerationskurva */
-    track-remainders;            /* Sparar bråkdelar för jämnare rörelse */
 };
 
 &pinctrl {
