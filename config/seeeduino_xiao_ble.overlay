@@ -12,9 +12,9 @@
         input-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 
-    /* Deklaration av accelerationsnoden inuti rot-noden */
     pointer_accel: pointer_accel {
         compatible = "zmk,input-processor-pointing-acceleration";
+        #input-processor-cells = <0>; /* Nödvändigt för ZMK input-processor bindings */
         min-factor = <1000>;         /* 1.0x vid långsamma rörelser (pixelprecision) */
         max-factor = <3500>;         /* 3.5x vid snabba svep */
         speed-threshold = <1000>;    /* Tröskelvärde där accelerationen startar */
