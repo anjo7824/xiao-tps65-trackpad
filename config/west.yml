@@ -19,6 +19,5 @@ manifest:
     - name: zmk-pointing-acceleration
       remote: oleksandrmaslov
       revision: main
-      path: zmk-pointing-acceleration
   self:
     path: config
