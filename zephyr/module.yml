@@ -1,3 +1,5 @@
+name: xiao-tps65-trackpad
 build:
+  cmake: zephyr
   settings:
     board_root: .
