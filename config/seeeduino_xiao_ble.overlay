@@ -1,5 +1,6 @@
 #include <dt-bindings/zmk/input_transform.h>
 #include <input/processors.dtsi>
+#include <behaviors/input_gestures_accel.dtsi>
 
 / {
     chosen {
@@ -15,9 +16,19 @@
     trackpad_listener {
         compatible = "zmk,input-listener";
         device = <&trackpad>;
-        /* Inbyggd pekaracceleration i ZMK: 1:1 vid finlir, 3x vid snabba svep */
-        input-processors = <&zip_temp_pseudo_accel 3 1>;
+        input-processors = <&pointer_accel>;
     };
+};
+
+/* Konfiguration för acceleration enligt modulens specifikation */
+&pointer_accel {
+    input-type = <INPUT_EV_REL>;
+    track-remainders;
+    min-factor = <800>;
+    max-factor = <3000>;
+    speed-threshold = <1200>;
+    speed-max = <6000>;
+    acceleration-exponent = <2>;
 };
 
 &pinctrl {
