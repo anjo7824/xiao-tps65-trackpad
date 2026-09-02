@@ -6,6 +6,7 @@
     chosen {
         zmk,pointing = &trackpad;
         zmk,kscan = &kscan0;
+        zephyr,console = &cdc_acm_uart0;
     };
 
     kscan0: kscan_0 {
@@ -17,6 +18,13 @@
         compatible = "zmk,input-listener";
         device = <&trackpad>;
         input-processors = <&pointer_accel>;
+    };
+};
+
+&zephyr_udc0 {
+    cdc_acm_uart0: cdc_acm_uart0 {
+        compatible = "zephyr,cdc-acm-uart";
+        label = "CDC_ACM_0";
     };
 };
 
