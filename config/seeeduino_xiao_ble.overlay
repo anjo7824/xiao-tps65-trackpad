@@ -14,18 +14,18 @@
         input-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 
-//    trackpad_listener {
-//        compatible = "zmk,input-listener";
-//        device = <&trackpad>;
-//        input-processors = <&pointer_accel>;
-//    };
+    trackpad_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackpad>;
+        input-processors = <&pointer_accel>;
+    };
 };
 
-&zephyr_udc0 {
-    cdc_acm_uart0: cdc_acm_uart0 {
-        compatible = "zephyr,cdc-acm-uart";
-        label = "CDC_ACM_0";
-    };
+//&zephyr_udc0 {
+//    cdc_acm_uart0: cdc_acm_uart0 {
+//        compatible = "zephyr,cdc-acm-uart";
+//        label = "CDC_ACM_0";
+//    };
 };
 
 /* Konfiguration för acceleration enligt modulens specifikation */
