@@ -5,7 +5,7 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
     - name: azoteq-remote
-      url-base: https://github.com/AYM1607
+      url-base: https://github.com/anjo7824
     - name: oleksandrmaslov
       url-base: https://github.com/oleksandrmaslov
   projects:
