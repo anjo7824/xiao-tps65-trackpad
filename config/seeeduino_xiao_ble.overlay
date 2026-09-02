@@ -6,7 +6,7 @@
     chosen {
         zmk,pointing = &trackpad;
         zmk,kscan = &kscan0;
-        #zephyr,console = &cdc_acm_uart0;
+        //zephyr,console = &cdc_acm_uart0;
     };
 
     kscan0: kscan_0 {
@@ -14,11 +14,11 @@
         input-gpios = <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
     };
 
-#    trackpad_listener {
-#        compatible = "zmk,input-listener";
-#        device = <&trackpad>;
-#        input-processors = <&pointer_accel>;
-#    };
+//    trackpad_listener {
+//        compatible = "zmk,input-listener";
+//        device = <&trackpad>;
+//        input-processors = <&pointer_accel>;
+//    };
 };
 
 &zephyr_udc0 {
