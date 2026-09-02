@@ -71,7 +71,7 @@
         scroll;
         natural-scroll-y;
         tap-and-hold;
-        tap-and-hold-release-timeout-ms = <500>;
+        tap-and-hold-release-timeout-ms = <250>;
         two-finger-tap;
         bottom-beta = <5>;
         switch-xy;
