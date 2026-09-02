@@ -62,7 +62,8 @@
         /* Drivrutinens standardegenskaper */
         scroll;
         natural-scroll-y;
-        press-and-hold;
+        tap-and-hold;
+        tap-and-hold-release-timeout-ms = <500>;
         two-finger-tap;
         bottom-beta = <5>;
     };
