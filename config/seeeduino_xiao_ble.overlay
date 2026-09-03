@@ -6,11 +6,11 @@
     chosen {
         zmk,pointing = &trackpad;
         zmk,kscan = &kscan0;
-        zmk,battery = &vbatt;
+        zmk,battery = &battery_divider;
         //zephyr,console = &cdc_acm_uart0;
     };
 
-    vbatt: voltage-divider {
+    battery_divider: voltage-divider {
         compatible = "voltage-divider";
         io-channels = <&adc 7>;
         output-ohms = <510000>;
