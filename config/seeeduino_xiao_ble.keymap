@@ -6,7 +6,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            bindings = <&bt BT_NXT>;
+            bindings = <&bt BT_NXT>, <&bootloader>;
         };
     };
 };
