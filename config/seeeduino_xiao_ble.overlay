@@ -6,17 +6,17 @@
     chosen {
         zmk,pointing = &trackpad;
         zmk,kscan = &kscan0;
-        //zmk,battery = &battery_divider;
+        zmk,battery = &battery_divider;
         //zephyr,console = &cdc_acm_uart0;
     };
 
-    /*battery_divider: voltage-divider {
-        compatible = "voltage-divider";
+    battery_divider: battery_divider {
+        compatible = "zmk,battery-voltage-divider";
         io-channels = <&adc 7>;
         output-ohms = <510000>;
         full-ohms = <1510000>;
         power-gpios = <&gpio0 14 (GPIO_ACTIVE_LOW | GPIO_OPEN_DRAIN)>;
-    };*/
+    };
 
     kscan0: kscan_0 {
         compatible = "zmk,kscan-gpio-direct";
