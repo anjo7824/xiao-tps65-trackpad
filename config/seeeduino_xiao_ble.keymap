@@ -26,10 +26,14 @@
         // as an escape hatch if pairing gets stuck with all 5 slots used up
         // or corrupted. No release-timeout race to worry about here since
         // there's no other key on this device to interrupt the hold decision.
+        // #binding-cells must be 2 here — ZMK's hold-tap schema hardcodes
+        // that regardless of what's wrapped. The 2 values are forwarded to
+        // the macros below, which ignore them (they just replay a fixed
+        // &bt binding), so the actual numbers passed don't matter.
         bt_hold_clear: bt_hold_clear {
             compatible = "zmk,behavior-hold-tap";
             label = "BT_HOLD_CLEAR";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             tapping-term-ms = <10000>;
             bindings = <&bt_clr_all_macro>, <&bt_nxt_macro>;
         };
@@ -44,7 +48,7 @@
             // Position 1 = D10 button: drop into the UF2 bootloader, so you
             // can reflash without needing physical access to the XIAO's own
             // reset button once the trackpad is inside a closed case.
-            bindings = <&bt_hold_clear>;
+            bindings = <&bt_hold_clear 0 0>;
         };
     };
 };
