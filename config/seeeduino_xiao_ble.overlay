@@ -19,6 +19,13 @@
         device = <&trackpad>;
         input-processors = <&pointer_accel>;
     };
+
+    charge_current_select: charge-current-select {
+        compatible = "regulator-fixed";
+        regulator-name = "HICHG_100MA";
+        enable-gpios = <&gpio0 13 GPIO_ACTIVE_LOW>;
+        regulator-boot-on;
+    };
 };
 
 //&zephyr_udc0 {
