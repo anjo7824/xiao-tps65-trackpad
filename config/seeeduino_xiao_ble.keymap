@@ -3,14 +3,30 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+    behaviors {
+        // Tap D9 = next BT profile (pairing). Hold 10s = clear ALL profiles,
+        // as an escape hatch if pairing gets stuck with all 5 slots used up
+        // or corrupted. No release-timeout race to worry about here since
+        // there's no other key on this device to interrupt the hold decision.
+        bt_hold_clear: bt_hold_clear {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BT_HOLD_CLEAR";
+            #binding-cells = <2>;
+            tapping-term-ms = <10000>;
+            bindings = <&bt>, <&bt>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            // Position 0 = D9 button: switch to the next BT profile slot.
-            // If that slot has no bond yet, the trackpad advertises for
-            // pairing with a new host as soon as you press it.
-            bindings = <&bt BT_NXT>;
+            // Position 0 = D9 button: tap to pair (BT_NXT), hold 10s to
+            // clear all 5 BT profiles if pairing ever gets stuck.
+            // Position 1 = D10 button: drop into the UF2 bootloader, so you
+            // can reflash without needing physical access to the XIAO's own
+            // reset button once the trackpad is inside a closed case.
+            bindings = <&bt_hold_clear BT_CLR_ALL BT_NXT>;
         };
     };
 };
