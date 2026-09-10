@@ -3,6 +3,24 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+    macros {
+        // Each macro hardcodes its BT command, so it takes 0 parameters.
+        // (BT_CLR_ALL and BT_NXT each already expand to 2 cells themselves —
+        // wrapping &bt directly in the hold-tap below would have forwarded
+        // those 2 cells straight through, mismatching its declared cell count.)
+        bt_clr_all_macro: bt_clr_all_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_CLR_ALL>;
+        };
+
+        bt_nxt_macro: bt_nxt_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_NXT>;
+        };
+    };
+
     behaviors {
         // Tap D9 = next BT profile (pairing). Hold 10s = clear ALL profiles,
         // as an escape hatch if pairing gets stuck with all 5 slots used up
@@ -11,9 +29,9 @@
         bt_hold_clear: bt_hold_clear {
             compatible = "zmk,behavior-hold-tap";
             label = "BT_HOLD_CLEAR";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             tapping-term-ms = <10000>;
-            bindings = <&bt>, <&bt>;
+            bindings = <&bt_clr_all_macro>, <&bt_nxt_macro>;
         };
     };
 
@@ -26,7 +44,7 @@
             // Position 1 = D10 button: drop into the UF2 bootloader, so you
             // can reflash without needing physical access to the XIAO's own
             // reset button once the trackpad is inside a closed case.
-            bindings = <&bt_hold_clear BT_CLR_ALL BT_NXT>;
+            bindings = <&bt_hold_clear>;
         };
     };
 };
